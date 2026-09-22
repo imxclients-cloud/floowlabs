@@ -17,7 +17,7 @@ import {
   Zap,
 } from "lucide-react";
 
-const logoUrl = "/manus-storage/floow-logo_cbd151fe.png";
+const logoUrl = "/floow-logo.svg";
 
 function BrandMark({ compact = false }: { compact?: boolean }) {
   return (
