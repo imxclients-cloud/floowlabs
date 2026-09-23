@@ -16,8 +16,10 @@ import {
   X,
   Zap,
 } from "lucide-react";
+import WhatsAppDemo from "@/components/WhatsAppDemo";
+import UnifiedFlowSection from "@/components/UnifiedFlowSection";
 
-const logoUrl = "/floow-logo.svg";
+const logoUrl = "/manus-storage/floow-logo-green-outline_4de514d4.png";
 
 function BrandMark({ compact = false }: { compact?: boolean }) {
   return (
@@ -71,6 +73,8 @@ export default function Home() {
           <a href="#top" className="logo-link"><BrandMark /></a>
           <nav className={mobileOpen ? "main-nav mobile-visible" : "main-nav"}>
             <a href="#como-funciona" onClick={() => setMobileOpen(false)}>Como funciona</a>
+            <a href="#demo" onClick={() => setMobileOpen(false)}>Demo</a>
+            <a href="#unificacao" onClick={() => setMobileOpen(false)}>Unificação</a>
             <a href="#solucoes" onClick={() => setMobileOpen(false)}>Soluções</a>
             <a href="#contato" onClick={() => setMobileOpen(false)}>Contato</a>
             <button className="mobile-cta" onClick={() => { setMobileOpen(false); scrollToContact(); }}>Falar com a Floow <ArrowRight size={16} /></button>
@@ -107,6 +111,9 @@ export default function Home() {
             <div className="visual-label">FLOOW / SYSTEMS <span>✳</span></div>
           </div>
         </section>
+
+        <WhatsAppDemo />
+        <UnifiedFlowSection />
 
         <section className="logo-strip"><span>Construímos com as ferramentas que você já usa</span><div className="tool-logos"><b>✦ notion</b><b>◉ WhatsApp</b><b>◌ google</b><b>◈ hubspot</b><b>↗ RD Station</b></div></section>
 
