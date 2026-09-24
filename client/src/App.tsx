@@ -1,6 +1,9 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import CookieManager from "@/components/CookieManager";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import NotFound from "@/pages/NotFound";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -10,6 +13,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/privacidade/politica-de-privacidade-e-cookies" component={PrivacyPolicy} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
@@ -23,6 +27,8 @@ export default function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <WhatsAppFloat />
+          <CookieManager />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

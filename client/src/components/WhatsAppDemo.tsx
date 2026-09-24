@@ -19,7 +19,7 @@ import {
   WalletCards,
 } from "lucide-react";
 
-const logoUrl = "/manus-storage/floow-logo-green-outline_4de514d4.png";
+const logoUrl = "/floow-logo-green-outline_4de514d4.png";
 
 type WhatsAppMessage = {
   id: string;
@@ -140,6 +140,8 @@ function MessageBody({ message }: { message: WhatsAppMessage }) {
   );
 }
 
+const FIRST_STEP = 1;
+
 export default function WhatsAppDemo() {
   const [visibleCount, setVisibleCount] = useState(2);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -157,6 +159,17 @@ export default function WhatsAppDemo() {
     return () => window.clearTimeout(timer);
   }, [isPlaying, isComplete, visibleCount]);
 
+  // Ao terminar a conversa, a demonstração recomeça automaticamente em loop.
+  useEffect(() => {
+    if (!isPlaying || !isComplete) return;
+
+    const timer = window.setTimeout(() => {
+      setVisibleCount(FIRST_STEP);
+    }, 3200);
+
+    return () => window.clearTimeout(timer);
+  }, [isPlaying, isComplete]);
+
   useEffect(() => {
     const chatBody = chatBodyRef.current;
     if (!chatBody) return;
@@ -164,7 +177,7 @@ export default function WhatsAppDemo() {
   }, [visibleCount]);
 
   const replay = () => {
-    setVisibleCount(1);
+    setVisibleCount(FIRST_STEP);
     setIsPlaying(true);
   };
 
